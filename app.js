@@ -6,7 +6,7 @@
 import { QUIZ_MODULES, QUIZ_QUESTIONS } from './quiz-data.js';
 
 const STORAGE_KEY = 'iot-study-studio-v1';
-const THEME_STORAGE_KEY = 'iot-study-studio-theme';
+const THEME_STORAGE_KEY = 'iot-study-studio-theme-v2';
 
 // User Study Progress History
 let history = {
@@ -1634,31 +1634,42 @@ document.getElementById('homeBrandBtn')?.addEventListener('click', () => {
 // Theme Management
 const themeBtn = document.getElementById('themeBtn');
 
-function setTheme(theme) {
-  document.documentElement.dataset.theme = theme;
-  if (themeBtn) {
-    themeBtn.textContent = theme === 'dark' ? '☀' : '☾';
-    themeBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+function setTheme(theme, persist = true) {
+  const activeTheme = theme === 'dark' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = activeTheme;
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+  if (metaThemeColor) {
+    metaThemeColor.setAttribute('content', activeTheme === 'dark' ? '#141a17' : '#f5f3ee');
   }
-  try {
-    localStorage.setItem(THEME_STORAGE_KEY, theme);
-  } catch (e) {}
+  if (themeBtn) {
+    themeBtn.textContent = activeTheme === 'dark' ? '☀' : '☾';
+    themeBtn.setAttribute('aria-label', activeTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+  if (persist) {
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, activeTheme);
+    } catch (e) {}
+  }
 }
 
 themeBtn?.addEventListener('click', () => {
-  const current = document.documentElement.dataset.theme;
-  setTheme(current === 'dark' ? 'light' : 'dark');
+  const current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+  setTheme(current === 'dark' ? 'light' : 'dark', true);
 });
 
-// Restore saved theme
+// Restore saved theme (defaults to light mode; users can toggle to dark manually)
 try {
+  // Clear any legacy auto-detected theme key from previous versions
+  localStorage.removeItem('iot-study-studio-theme');
   const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
   if (savedTheme === 'dark' || savedTheme === 'light') {
-    setTheme(savedTheme);
-  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    setTheme('dark');
+    setTheme(savedTheme, false);
+  } else {
+    setTheme('light', false);
   }
-} catch (e) {}
+} catch (e) {
+  setTheme('light', false);
+}
 
 // Global Keyboard Shortcuts
 document.addEventListener('keydown', (e) => {
