@@ -1,71 +1,51 @@
-# Internet of Things (IoT) — Study Studio & Quiz Platform
+# IoT Quiz & Study Studio
 
-A self-contained Single-Page Application (SPA) designed to help students and engineers practice, review, and master NPTEL Introduction to IoT assignments across Weeks 0 through 12 (14 structured modules, 210 verified questions).
+A static web app for practicing all 195 assignment questions from NPTEL's Introduction to Internet of Things course across Weeks 0 to 12.
 
-Built with zero external frameworks or backend databases: just pure semantic HTML5, custom CSS, and Vanilla JavaScript with `localStorage` persistence.
+No build step, framework, or database needed. Everything runs in the browser and saves progress to localStorage.
 
----
+## Practice modes
 
-## Key Features
+- Full test: all 195 questions across every module.
+- Random sprint: 20 random questions pulled from across the course.
+- Mistake Vault: automatically collects questions you miss or skip. A question stays in the vault until you answer it correctly twice in a row.
+- Flashcard review: shows the question, press Space to reveal the verified answer and explanation, use arrow keys to navigate.
+- Survival mode: answer random questions with 3 lives. One mistake loses a life; tracks your highest unbroken streak.
+- Starred questions: bookmark tricky questions during tests or flashcards for quick revision.
 
-- **210 Authentic Assignment Questions**: Verbatim coverage of Weeks 0 to 12, supporting single-choice (MCQ), multiple-select (MSQ), and True/False questions with comprehensive technical explanations.
-- **The Mistake Vault**: Automatically captures questions you miss or skip. A question remains in your vault until you solve it correctly twice in a row.
-- **Rapid Flashcard Mode**: Practice fast mental recall without multiple-choice fatigue. Press Space to flip and reveal verified answers and solutions, with arrow keys to navigate.
-- **Survival Mode (Sudden Death)**: Random questions keep coming with a 3-lives challenge. One wrong answer costs a life. Tracks and saves your all-time highest unbroken streak.
-- **Starred Questions Vault**: Bookmark tricky formulas, calculation problems, or confusing concepts with the star button for focused last-minute revision.
-- **Dual Grading Modes**:
-  - **Instant Feedback (Study Mode)**: Answers highlight immediately in green or red, with the solution expanding right below the question.
-  - **Grade at End (Exam Mode)**: Keeps answers private until final submission to simulate real exam conditions.
-- **Score Progress Ledger**: Tracks your attempt history (Score 1, Score 2, Score 3...) with percentage scores and module-by-module mastery bars.
-- **Zero Backend Required**: All attempts, test progress, themes, and bookmarks persist directly in your browser disk via `localStorage`.
-- **Print Friendly**: Dedicated print stylesheets for generating clean offline study sheets or review notes.
-- **Dark & Light Modes**: High-contrast, tailored color schemes with automated system preference detection.
+## Grading options
 
----
+- Instant feedback (Study): options turn green or red immediately upon selection, and the explanation opens right below.
+- Grade at end (Exam): selections stay neutral until final submission to simulate real exam conditions.
 
-## Quick Start
+## Running locally
 
-You do not need to install complex build tools or compilers.
-
-### Option 1: Using any static server (Recommended)
+Open `index.html` directly in any web browser, or serve it locally:
 
 ```bash
-# Run with npx (Node.js)
+# Using Node
 npx serve .
+
+# Or using Python
+python3 -m http.server 3000
 ```
 
-Then open `http://localhost:3000` (or the port shown in your terminal) in your browser.
+Open `http://localhost:3000` (or the port shown in your terminal).
 
-### Option 2: Direct file launch
+## Files
 
-Open `index.html` directly in any modern web browser (Google Chrome, Safari, Firefox, or Edge).
+- `index.html`: page markup and modal containers
+- `styles.css`: typography and light/dark theme styles
+- `app.js`: test state, scoring, and keyboard handlers
+- `quiz-data.js`: questions, options, answer keys, and explanations for Weeks 0 to 12
+- `package.json`: optional local dev runner script
 
----
+## Keyboard controls
 
-## Project Structure
-
-```
-.
-├── index.html       # Semantic HTML5 shell and custom modal dialogs
-├── styles.css       # Complete design system, responsive grids, and print styles
-├── app.js           # SPA application logic, state, and test runner
-├── quiz-data.js     # 14 modules and 210 structured question definitions
-├── package.json     # Optional npm runner scripts
-└── README.md        # Documentation and usage guide
-```
-
----
-
-## Keyboard Shortcuts
-
-| Key | Context | Action |
-| :--- | :--- | :--- |
-| `Space` | Flashcard Mode | Flip card to reveal/hide solution |
-| `→` (Right Arrow) | Quiz / Flashcards | Move to next question or card |
-| `←` (Left Arrow) | Quiz / Flashcards | Move to previous question or card |
-| `Esc` | Anywhere | Close active modal or prompt exit |
-
----
+- `Space`: flip flashcard to reveal or hide the solution
+- `→`: next question or card
+- `←`: previous question or card
+- `Esc`: dismiss modal or prompt exit
 
 ## License
 

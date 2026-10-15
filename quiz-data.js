@@ -1,6 +1,6 @@
 /**
  * Internet of Things (IoT) Quiz & Question Bank
- * Comprehensive dataset covering Weeks 0 through 12 (14 Modules, 210 Questions)
+ * Comprehensive dataset covering Weeks 0 through 12 (13 Modules, 195 Questions)
  * Authentic NPTEL Introduction to IoT assignments with verified solutions.
  */
 
@@ -18,7 +18,7 @@ export const QUIZ_MODULES = [
     moduleNumber: "01",
     weekLabel: "Week 1",
     title: "Introduction to IoT & Sensing",
-    description: "IoT definitions, architectures, sensor classifications, actuators, and ubiquitous computing.",
+    description: "ITU report, Smart Dust, M2M, Web of Things, IPv6 addressing, sensor characteristics, and actuators.",
     questionCount: 15
   },
   {
@@ -62,24 +62,16 @@ export const QUIZ_MODULES = [
     questionCount: 15
   },
   {
-    id: "week-7-1",
+    id: "week-7",
     moduleNumber: "07",
-    weekLabel: "Week 7 (Part 1)",
-    title: "IoT Cloud & Virtualization",
-    description: "Sensor virtualization, multi-tenant cloud models, hypervisors, and Sensing-as-a-Service (SEaaS).",
-    questionCount: 15
-  },
-  {
-    id: "week-7-2",
-    moduleNumber: "08",
-    weekLabel: "Week 7 (Part 2)",
-    title: "Edge & Fog Computing Basics",
-    description: "Edge offloading, distributed caching, latency minimization, and edge analytics architectures.",
+    weekLabel: "Week 7",
+    title: "Remote Data Logging & Software-Defined IoT",
+    description: "Remote UDP data logging, DHT sensor client-server, Matplotlib real-time plotting, SDN and SDN-WISE.",
     questionCount: 15
   },
   {
     id: "week-8",
-    moduleNumber: "09",
+    moduleNumber: "08",
     weekLabel: "Week 8",
     title: "SDN in IoT & Cloud Infrastructure",
     description: "ODIN, Mobi-Flow rule placement, Mininet-WiFi, NIST cloud characteristics, IaaS/PaaS, and CloudSim.",
@@ -87,7 +79,7 @@ export const QUIZ_MODULES = [
   },
   {
     id: "week-9",
-    moduleNumber: "10",
+    moduleNumber: "09",
     weekLabel: "Week 9",
     title: "OpenStack, Sensor-Cloud & Fog",
     description: "Nova, Horizon, DevStack, Sensor-Cloud caching (IC), and Fog computing layers.",
@@ -95,7 +87,7 @@ export const QUIZ_MODULES = [
   },
   {
     id: "week-10",
-    moduleNumber: "11",
+    moduleNumber: "10",
     weekLabel: "Week 10",
     title: "Smart Cities, HAN & V2X",
     description: "Smart city dimensions, data fusion levels, HAN (ZigBee, X-10), dedicated energy harvesting, and ICVs.",
@@ -103,7 +95,7 @@ export const QUIZ_MODULES = [
   },
   {
     id: "week-11",
-    moduleNumber: "12",
+    moduleNumber: "11",
     weekLabel: "Week 11",
     title: "Smart Grid & Industrial IoT (IIoT)",
     description: "Bidirectional grids, Time-of-Use pricing, PMUs, wrap-and-reuse in IIoT, veracity, and Hadoop HDFS.",
@@ -111,7 +103,7 @@ export const QUIZ_MODULES = [
   },
   {
     id: "week-12",
-    moduleNumber: "13",
+    moduleNumber: "12",
     weekLabel: "Week 12",
     title: "Data Analytics, AgriSens & Healthcare",
     description: "Qualitative analysis, ANOVA, AgriSens 3-layer architecture, and smartphone activity monitoring.",
@@ -357,239 +349,239 @@ export const QUIZ_QUESTIONS = [
   },
 
   // ==========================================
-  // WEEK 1: ASSIGNMENT 1
+  // WEEK 1: ASSIGNMENT 1 (From week1.pdf)
   // ==========================================
   {
     id: "w1-q1",
     moduleId: "week-1",
     weekLabel: "Week 1",
     questionNumber: 1,
-    questionText: "Who coined the term 'Internet of Things' in 1999 during a presentation for Procter & Gamble?",
+    questionText: "According to the ITU Internet Report 2005 discussed in the lecture, the future Internet is expected to become wider and more complex mainly because:",
     options: [
-      { key: "a", text: "Tim Berners-Lee" },
-      { key: "b", text: "Kevin Ashton" },
-      { key: "c", text: "Vint Cerf" },
-      { key: "d", text: "Alan Turing" }
+      { key: "a", text: "Humans will completely stop using the Internet" },
+      { key: "b", text: "Most Internet traffic may flow between devices and different kinds of things" },
+      { key: "c", text: "Only desktop computers will remain connected" },
+      { key: "d", text: "Internet communication will be restricted to email services" },
     ],
     correctKeys: ["b"],
     type: "mcq",
-    solution: "Kevin Ashton coined the term 'Internet of Things' in 1999 while working at the Auto-ID Center at MIT to link RFID in P&G's supply chain to the internet."
+    solution: "The ITU report describes a future where humans may become a min ority as generators and receivers of traffic. Instead, communication will increasingly happen between devices and \u201cthings,\u201d forming the Internet of Things. See lecture 1 Introduction to IoT \u2014 Part-I @ 03:10"
   },
   {
     id: "w1-q2",
     moduleId: "week-1",
     weekLabel: "Week 1",
     questionNumber: 2,
-    questionText: "Which of the following are primary characteristics of the Internet of Things?",
+    questionText: "Which of the following are characteristics of IoT systems?",
     options: [
-      { key: "a", text: "Enormous scale and interconnectivity" },
-      { key: "b", text: "Heterogeneity of devices" },
-      { key: "c", text: "Dynamic changes in device state" },
-      { key: "d", text: "Exclusively wired communication" }
+      { key: "a", text: "Efficient and scalable architecture" },
+      { key: "b", text: "Unambiguous naming and addressing" },
+      { key: "c", text: "Presence of sleeping nodes, mobile nodes, and non-IP devices" },
+      { key: "d", text: "Guaranteed continuous connectivity for every device at all times" },
     ],
     correctKeys: ["a", "b", "c"],
     type: "msq",
-    solution: "IoT is characterized by massive scale, pervasive interconnectivity, device heterogeneity, and dynamic changes. Devices use diverse wireless and wired channels."
+    solution: "IoT systems require scalable architecture, clear naming and addressing, and must support heterogeneous devices such as sleeping nodes, mobile nodes, and non-IP devices. However, IoT systems may have intermittent connectivity, so option d is incorrect. See lecture 1: Introduction to IoT \u2014 Part-I @ 06:05"
   },
   {
     id: "w1-q3",
     moduleId: "week-1",
     weekLabel: "Week 1",
     questionNumber: 3,
-    questionText: "State True or False. In sensor terminology, sensitivity is defined as the ratio of change in output electrical signal to the change in input physical parameter.",
+    questionText: "In the lecture, \u201cSmart Dust\u201d refers to:",
     options: [
-      { key: "a", text: "True" },
-      { key: "b", text: "False" }
+      { key: "a", text: "A cloud storage model for IoT data" },
+      { key: "b", text: "A large-scale wireless router used in smart cities" },
+      { key: "c", text: "Very tiny computing devices that can be sprayed or injected for sensing purposes" },
+      { key: "d", text: "A type of IPv6 address used in IoT networks" },
     ],
-    correctKeys: ["a"],
-    type: "boolean",
-    solution: "Sensitivity describes how much the output changes when the measured input physical quantity changes by a unit amount (ΔOutput / ΔInput)."
+    correctKeys: ["c"],
+    type: "mcq",
+    solution: "Smart Dust refers to extremely small computing devices, smaller than a grain of sand, that can be used to measure chemicals in soil or diagnose problems in the human body. See lecture 1 Introduction to IoT \u2014 Part-I @ 10:40"
   },
   {
     id: "w1-q4",
     moduleId: "week-1",
     weekLabel: "Week 1",
     questionNumber: 4,
-    questionText: "In the standard 3-layer architecture of IoT, which layer directly interacts with physical sensors and actuators?",
+    questionText: "Which statement best explains the relation between IoT and M2M communication?",
     options: [
-      { key: "a", text: "Perception layer" },
-      { key: "b", text: "Network layer" },
-      { key: "c", text: "Application layer" },
-      { key: "d", text: "Business layer" }
+      { key: "a", text: "IoT and M2M are exactly the same" },
+      { key: "b", text: "M2M is broader than IoT because it includes people and applications" },
+      { key: "c", text: "M2M is a part of IoT, while IoT has a broader scope of interactions" },
+      { key: "d", text: "IoT does not include machine-to-machine interaction" },
     ],
-    correctKeys: ["a"],
+    correctKeys: ["c"],
     type: "mcq",
-    solution: "The Perception layer (physical layer) is responsible for sensing physical parameters and interacting with the real world using sensors and actuators."
+    solution: "M2M focuses mainly on communication among machines and devices. IoT is broader because it includes interactions between things, people, applications, and systems. See lecture 1 Introduction to IoT \u2014 Part-I @ 19:30"
   },
   {
     id: "w1-q5",
     moduleId: "week-1",
     weekLabel: "Week 1",
     questionNumber: 5,
-    questionText: "State True or False. Passive sensors generate an output signal directly from the input physical stimulation without requiring an external electrical power supply.",
+    questionText: "State whether the following statement is True or False. Statement: In the Web of Things, IoT sensors are replaced completely by cloud databases.",
     options: [
       { key: "a", text: "True" },
-      { key: "b", text: "False" }
+      { key: "b", text: "False" },
     ],
-    correctKeys: ["a"],
+    correctKeys: ["b"],
     type: "boolean",
-    solution: "Passive sensors (e.g., thermocouples, piezoelectric crystals) generate their own electrical output signal without an external power source."
+    solution: "The Web of Things does not replace sensors. Sensors remain responsible for collecting physical-world dat a, while web technologies help expose and access IoT resources. See lecture 1 Introduction to IoT \u2014 Part-I @ 22:50"
   },
   {
     id: "w1-q6",
     moduleId: "week-1",
     weekLabel: "Week 1",
     questionNumber: 6,
-    questionText: "Which IPv6 address length allows an astronomical address space to accommodate billions of IoT devices?",
+    questionText: "In an IoT network configuration, local addresses may be valid only within a gateway\u2019s domain. The same local address may even appear under another gateway. The main advantage of this strategy is:",
     options: [
-      { key: "a", text: "32 bits" },
-      { key: "b", text: "64 bits" },
-      { key: "c", text: "128 bits" },
-      { key: "d", text: "256 bits" }
+      { key: "a", text: "It increases unnecessary address consumption" },
+      { key: "b", text: "It helps conserve address space" },
+      { key: "c", text: "It removes the requirement of a gateway" },
+      { key: "d", text: "It prevents any device from communicating with the Internet" },
     ],
-    correctKeys: ["c"],
+    correctKeys: ["b"],
     type: "mcq",
-    solution: "IPv6 uses 128-bit addresses (2^128 addresses), solving IPv4's 32-bit address exhaustion and providing unique IPs for every IoT device."
+    solution: "Using locally valid addresses within a gateway\u2019s domain allows address reuse across different gateway domains. This helps avoid unnecessary wastage of global addresses. See lecture 2 Introduction to IoT \u2014 Part-II @ 05:30"
   },
   {
     id: "w1-q7",
     moduleId: "week-1",
     weekLabel: "Week 1",
     questionNumber: 7,
-    questionText: "Which of the following is NOT an actuator?",
+    questionText: "Which of the following functions are associated with IoT gateways in the addressing strategy discussed in the lecture?",
     options: [
-      { key: "a", text: "DC motor" },
-      { key: "b", text: "Solenoid valve" },
-      { key: "c", text: "Light Dependent Resistor (LDR)" },
-      { key: "d", text: "Relay switch" }
+      { key: "a", text: "Providing Internet connectivity" },
+      { key: "b", text: "Supporting IoT LAN intra-connectivity" },
+      { key: "c", text: "Obtaining upstream address prefixes using mechanisms such as DHCPv6" },
+      { key: "d", text: "Delegating addresses to nodes using SLAAC" },
     ],
-    correctKeys: ["c"],
-    type: "mcq",
-    solution: "An LDR is a light sensor whose resistance varies with illumination. Motors, solenoid valves, and relays are actuators that produce physical actions."
+    correctKeys: ["a", "b", "c", "d"],
+    type: "msq",
+    solution: "IoT gateways can provide Internet connectivity and IoT LAN intra-connectivity. They may obtain upstream prefixes through DHCPv6 and delegate them to nodes using SLAAC. See lecture 2 Introduction to IoT \u2014 Part-II @ 09:40"
   },
   {
     id: "w1-q8",
     moduleId: "week-1",
     weekLabel: "Week 1",
     questionNumber: 8,
-    questionText: "Which fundamental technology originally catalyzed the Auto-ID Center's vision of IoT?",
+    questionText: "Which of the following is true about IPv6 compared to IPv4?",
     options: [
-      { key: "a", text: "Radio Frequency Identification (RFID)" },
-      { key: "b", text: "Quantum computing" },
-      { key: "c", text: "Satellite radio" },
-      { key: "d", text: "Fiber distributed data interface" }
+      { key: "a", text: "IPv6 uses dotted decimal notation" },
+      { key: "b", text: "IPv6 has a smaller address space than IPv4" },
+      { key: "c", text: "IPv6 uses hexadecimal notation and supports a much larger address space" },
+      { key: "d", text: "IPv6 requires broadcast addresses in the same way as IPv4" },
     ],
-    correctKeys: ["a"],
+    correctKeys: ["c"],
     type: "mcq",
-    solution: "RFID tags and Electronic Product Code (EPC) were the foundational technologies that catalyzed the modern IoT paradigm."
+    solution: "IPv4 uses 32-bit addresses and dotted decimal notation, whereas IPv6 uses 128- bit addresses and hexadecimal notation. This makes IPv6 more su itable for large-scale IoT addressing. See lecture 2 Introduction to IoT \u2014 Part-II @ 16:50"
   },
   {
     id: "w1-q9",
     moduleId: "week-1",
     weekLabel: "Week 1",
     questionNumber: 9,
-    questionText: "State True or False. Ubiquitous or pervasive computing represents an environment where computing capabilities are invisibly integrated into everyday objects.",
+    questionText: "Which statement correctly represents the design expectation from a good sensor?",
     options: [
-      { key: "a", text: "True" },
-      { key: "b", text: "False" }
+      { key: "a", text: "It should influence the measured property significantly" },
+      { key: "b", text: "It should respond strongly to unrelated physical properties" },
+      { key: "c", text: "It should be sensitive to the measured property and should not disturb it" },
+      { key: "d", text: "It should always produce random output" },
     ],
-    correctKeys: ["a"],
-    type: "boolean",
-    solution: "Ubiquitous computing, pioneered by Mark Weiser, describes computational intelligence woven into the fabric of everyday environments."
+    correctKeys: ["c"],
+    type: "mcq",
+    solution: "A good sensor should measure the desired property, remain insen sitive to unrelated properties, and should not influence or alter the measured quantity. See lecture 3 Sensing @ 13:00"
   },
   {
     id: "w1-q10",
     moduleId: "week-1",
     weekLabel: "Week 1",
     questionNumber: 10,
-    questionText: "How does M2M primarily differ from the broader concept of IoT?",
+    questionText: "Which of the following statements about sensor resolution are correct?",
     options: [
-      { key: "a", text: "M2M typically uses point-to-point connections with proprietary protocols, while IoT leverages open IP networks" },
-      { key: "b", text: "IoT requires humans to manually pass packets between machines" },
-      { key: "c", text: "M2M uses cloud computing, whereas IoT cannot connect to the internet" },
-      { key: "d", text: "There is no difference between M2M and IoT" }
+      { key: "a", text: "Sensor resolution is the smallest change that the sensor can detect" },
+      { key: "b", text: "For a digital sensor, resolution is related to the smallest digital output change it can process" },
+      { key: "c", text: "Sensor resolution and sensor accuracy always refer to exactly the same property" },
+      { key: "d", text: "Sensor accuracy does not depend only on resolution" },
     ],
-    correctKeys: ["a"],
-    type: "mcq",
-    solution: "M2M historically uses isolated, point-to-point links and closed proprietary protocols. IoT embraces open IP standards, cloud services, and horizontal cross-system data sharing."
+    correctKeys: ["a", "b", "d"],
+    type: "msq",
+    solution: "Resolution refers to the smallest detectable change in the meas ured quantity. In digital sensors, it is related to the smallest digital output step. However, accuracy and resolution are not the same; a high-resolution sensor may still be inaccurate if it has bias or calibration errors. See lecture 3 Sensing @ 14:10"
   },
   {
     id: "w1-q11",
     moduleId: "week-1",
     weekLabel: "Week 1",
     questionNumber: 11,
-    questionText: "Thermocouples operate on which thermoelectric principle to measure temperature differences?",
+    questionText: "State True or False. An accelerometer that measures acceleration along the x, y, and z coordinate axes is classified as a vector sensor.",
     options: [
-      { key: "a", text: "Seebeck effect" },
-      { key: "b", text: "Doppler effect" },
-      { key: "c", text: "Hall effect" },
-      { key: "d", text: "Faraday's law" }
+      { key: "a", text: "True" },
+      { key: "b", text: "False" },
     ],
     correctKeys: ["a"],
-    type: "mcq",
-    solution: "The Seebeck effect produces an electromotive force (voltage) across junctions of dissimilar electrical conductors when subjected to a temperature gradient."
+    type: "boolean",
+    solution: "A vector sensor measures quanti ties that have both magnitude an d direction or orientation. Since an accelerometer measures acceleration compo nents along different coordinate axes, such as x, y, and z, it is classified as a vector sensor. See lecture 3 Sensing @ 18:40"
   },
   {
     id: "w1-q12",
     moduleId: "week-1",
     weekLabel: "Week 1",
     questionNumber: 12,
-    questionText: "The resolution of a sensor is defined as:",
+    questionText: "A sensor gives different output for the same input value depend ing on whether that input was reached by increasing or decreasing the measured quantity. This error is called:",
     options: [
-      { key: "a", text: "The smallest detectable change in the input physical quantity" },
-      { key: "b", text: "The maximum operating voltage of the sensor" },
-      { key: "c", text: "The speed at which packets travel over Ethernet" },
-      { key: "d", text: "The physical weight of the transducer" }
+      { key: "a", text: "Quantization error" },
+      { key: "b", text: "Hysteresis error" },
+      { key: "c", text: "IPv6 translation error" },
+      { key: "d", text: "Gateway prefix error" },
     ],
-    correctKeys: ["a"],
+    correctKeys: ["b"],
     type: "mcq",
-    solution: "Resolution denotes the smallest incremental change in the measurand that results in a detectable change in the sensor's output."
+    solution: "Hysteresis error occurs when the sensor output depends on the previous input history. The same present input may give different readings dep ending on whether the input was approached from a lower or higher value. See lecture 3 Sensing @ 22:40"
   },
   {
     id: "w1-q13",
     moduleId: "week-1",
     weekLabel: "Week 1",
     questionNumber: 13,
-    questionText: "State True or False. Active sensors require an external power excitation source to perform sensing measurements.",
+    questionText: "State True or False A hydraulic actuator can produce considerable force because liquids are nearly incompressible.",
     options: [
-      { key: "a", text: "True" },
-      { key: "b", text: "False" }
+      { key: "a", text: "False" },
+      { key: "b", text: "True" },
     ],
-    correctKeys: ["a"],
+    correctKeys: ["b"],
     type: "boolean",
-    solution: "Active sensors require an external power supply or excitation signal (e.g., strain gauges, thermistors, RTDs) to measure physical changes."
+    solution: "A hydraulic actuator uses hydraulic fluid to generate mechanical motion. Since liquids are nearly incompressible, hydraulic actuators can exert large forces. See lecture 4 Actuation @ 06:20"
   },
   {
     id: "w1-q14",
     moduleId: "week-1",
     weekLabel: "Week 1",
     questionNumber: 14,
-    questionText: "Which of the following are examples of environmental sensors used in IoT?",
+    questionText: "Which of the following statements are correct about Shape Memory Polymer actuators?",
     options: [
-      { key: "a", text: "Barometric pressure sensor" },
-      { key: "b", text: "Relative humidity sensor" },
-      { key: "c", text: "Gas/CO2 concentration sensor" },
-      { key: "d", text: "Pneumatic piston" }
+      { key: "a", text: "They may respond to stimuli such as light, heat, electrical, magnetic, pH, or moisture changes" },
+      { key: "b", text: "They can show high strain recovery" },
+      { key: "c", text: "They may have properties such as low density and biocompatibility" },
+      { key: "d", text: "They are used only as passive temperature sensors" },
     ],
     correctKeys: ["a", "b", "c"],
     type: "msq",
-    solution: "Barometric pressure, humidity, and gas sensors measure environmental parameters. Pneumatic pistons are mechanical actuators."
+    solution: "Shape Memory Polymer actuators can respond to different stimuli and are known for features such as low density, high strain recovery, biocomp atibility, and biodegradability. They are actuator materials, not merely passive temperature sensors. See lecture 4 Actuation @ 18:20"
   },
   {
     id: "w1-q15",
     moduleId: "week-1",
     weekLabel: "Week 1",
     questionNumber: 15,
-    questionText: "In IoT sensing systems, an analog sensor requires which component before its readings can be processed by a digital microcontroller?",
+    questionText: "State whether the following statement is True or False. Statement: According to the IoT implementation example discussed in the lecture, data gathered by a sensor travels through a gateway and a proxy server before arriving at the cloud server.",
     options: [
-      { key: "a", text: "Analog-to-Digital Converter (ADC)" },
-      { key: "b", text: "Step-up transformer" },
-      { key: "c", text: "Mechanical flywheel" },
-      { key: "d", text: "DNS router" }
+      { key: "a", text: "True" },
+      { key: "b", text: "False" },
     ],
     correctKeys: ["a"],
-    type: "mcq",
-    solution: "An ADC samples continuous analog electrical voltages and converts them into discrete binary numbers for digital processing."
+    type: "boolean",
+    solution: "In the example IoT implementation, the sensor first collects the data. The data then passes through the gateway and proxy server before reaching the cloud server for further processing and analytics. See Lecture 5: Basics of IoT Networking \u2014 Part-I @ 07:30"
   },
 
   // ==========================================
@@ -1785,471 +1777,245 @@ export const QUIZ_QUESTIONS = [
   },
 
   // ==========================================
-  // WEEK 7 PART 1: MODULE 07 (Cloud & Virtualization)
+  // WEEK 7: ASSIGNMENT 7 (From week7.pdf)
   // ==========================================
   {
-    id: "w7p1-q1",
-    moduleId: "week-7-1",
-    weekLabel: "Week 7 (Part 1)",
+    id: "w7-q1",
+    moduleId: "week-7",
+    weekLabel: "Week 7",
     questionNumber: 1,
-    questionText: "What does Sensor-as-a-Service (SEaaS) enable in an IoT cloud architecture?",
+    questionText: "In the remote data logging system, which socket type is used to send sensor data from the client to the server?",
     options: [
-      { key: "a", text: "Physical replacement of sensor hardware periodically" },
-      { key: "b", text: "Access to sensor data as a utility on a pay-per-use model" },
-      { key: "c", text: "Elimination of wireless communications" },
-      { key: "d", text: "Restriction of sensor feeds to single-user proprietary networks" }
+      { key: "a", text: "SOCK_STREAM" },
+      { key: "b", text: "SOCK_DGRAM" },
+      { key: "c", text: "SOCK_RAW" },
+      { key: "d", text: "SOCK_SEQPACKET" },
     ],
     correctKeys: ["b"],
     type: "mcq",
-    solution: "Sensor-as-a-Service enables multiple end-users to consume real-time sensor streams on-demand over the cloud on a pay-per-use basis."
+    solution: "The client creates a UDP socket using socket.socket(socket.AF_INET, socket.SOCK_DGRAM) to send the sensor readings to the server. See Lecture 31 (Implementation of IoT with Raspberry Pi \u2013 Part 2) @ 07:10"
   },
   {
-    id: "w7p1-q2",
-    moduleId: "week-7-1",
-    weekLabel: "Week 7 (Part 1)",
+    id: "w7-q2",
+    moduleId: "week-7",
+    weekLabel: "Week 7",
     questionNumber: 2,
-    questionText: "Which component in cloud virtualization is responsible for creating and running virtual machine instances?",
+    questionText: "Which Adafruit function is used in the client code to read humidity and temperature values from the DHT sensor?",
     options: [
-      { key: "a", text: "Transducer" },
-      { key: "b", text: "Hypervisor / Virtual Machine Monitor (VMM)" },
-      { key: "c", text: "ADC multiplexer" },
-      { key: "d", text: "ZigBee coordinator" }
+      { key: "a", text: "Adafruit_DHT.read_retry()" },
+      { key: "b", text: "Adafruit_DHT.get_data()" },
+      { key: "c", text: "Adafruit_DHT.sense()" },
+      { key: "d", text: "Adafruit_DHT.capture()" },
     ],
-    correctKeys: ["b"],
+    correctKeys: ["a"],
     type: "mcq",
-    solution: "A hypervisor (or Virtual Machine Monitor) manages virtual machines, abstracting compute and storage resources from physical hardware."
+    solution: "The sensordata() function calls Adafruit_DHT.read_retry(sensor,17), which returns the humidity and temperature values from the DHT sensor. See Lecture 31 (Implementation of IoT with Raspberry Pi \u2013 Part 2) @ 04:50"
   },
   {
-    id: "w7p1-q3",
-    moduleId: "week-7-1",
-    weekLabel: "Week 7 (Part 1)",
+    id: "w7-q3",
+    moduleId: "week-7",
+    weekLabel: "Week 7",
     questionNumber: 3,
-    questionText: "State True or False. Virtual Sensors allow multiple distinct applications to access the same physical sensor stream simultaneously with custom filtering.",
+    questionText: "Where does the server in the remote data logging example save the data received from the client as mentioned in the lecture?",
     options: [
-      { key: "a", text: "True" },
-      { key: "b", text: "False" }
-    ],
-    correctKeys: ["a"],
-    type: "boolean",
-    solution: "Virtual Sensors decouple physical sensing hardware from applications, enabling multi-tenant resource sharing and dynamic composition."
-  },
-  {
-    id: "w7p1-q4",
-    moduleId: "week-7-1",
-    weekLabel: "Week 7 (Part 1)",
-    questionNumber: 4,
-    questionText: "Which of the following are primary benefits of integrating Cloud Computing with IoT?",
-    options: [
-      { key: "a", text: "Elastic compute and high-capacity storage for big data" },
-      { key: "b", text: "Global accessibility of device telemetries" },
-      { key: "c", text: "Sophisticated analytics and machine learning processing" },
-      { key: "d", text: "Complete elimination of device battery requirements" }
-    ],
-    correctKeys: ["a", "b", "c"],
-    type: "msq",
-    solution: "Cloud provides scalable storage, massive compute, and global data access, but it does not eliminate the physical battery requirements of IoT endpoints."
-  },
-  {
-    id: "w7p1-q5",
-    moduleId: "week-7-1",
-    weekLabel: "Week 7 (Part 1)",
-    questionNumber: 5,
-    questionText: "In cloud computing taxonomy, Multi-Tenancy refers to:",
-    options: [
-      { key: "a", text: "A single client running on multiple private datacenters" },
-      { key: "b", text: "Multiple independent customers sharing underlying physical computing resources safely" },
-      { key: "c", text: "A sensor node having multiple batteries" },
-      { key: "d", text: "An operating system without file permissions" }
+      { key: "a", text: "In a MySQL database" },
+      { key: "b", text: "In a text file named Datalog.txt" },
+      { key: "c", text: "On a cloud dashboard" },
+      { key: "d", text: "In an Excel spreadsheet" },
     ],
     correctKeys: ["b"],
     type: "mcq",
-    solution: "Multi-tenancy allows cloud infrastructure to serve multiple independent tenants simultaneously with secure logical separation."
+    solution: "The server code opens 'Datalog.txt' in append mode and writes the received message from the client into this text file. See Lecture 31 (Implementation of IoT with Raspberry Pi \u2013 Part 2) @ 15:40"
   },
   {
-    id: "w7p1-q6",
-    moduleId: "week-7-1",
-    weekLabel: "Week 7 (Part 1)",
-    questionNumber: 6,
-    questionText: "State True or False. In Sensor-Cloud infrastructure, physical sensors can be dynamically pooled to compose a virtual sensor that covers a broader geographic boundary.",
+    id: "w7-q4",
+    moduleId: "week-7",
+    weekLabel: "Week 7",
+    questionNumber: 4,
+    questionText: "Which Python string function is used to split the comma-separated sensor data into separate values on the server?",
     options: [
-      { key: "a", text: "True" },
-      { key: "b", text: "False" }
+      { key: "a", text: "split()" },
+      { key: "b", text: "divide()" },
+      { key: "c", text: "partition()" },
+      { key: "d", text: "separate()" },
     ],
     correctKeys: ["a"],
-    type: "boolean",
-    solution: "Sensor-Cloud enables optimal composition of physical nodes into composite virtual sensors across defined geographical boundaries."
+    type: "mcq",
+    solution: "The split() function splits a string into multiple strings based on a specified separator/delimiter, e.g. Data.split(\",\") splits data wherever a comma is found. See Lecture 32 (Implementation of IoT with Raspberry Pi \u2013 Part 3) @ 08:40"
   },
   {
-    id: "w7p1-q7",
-    moduleId: "week-7-1",
-    weekLabel: "Week 7 (Part 1)",
-    questionNumber: 7,
-    questionText: "Which cloud service model provides a full ready-to-use software application accessible via a web browser (e.g., Salesforce, Google Workspace)?",
+    id: "w7-q5",
+    moduleId: "week-7",
+    weekLabel: "Week 7",
+    questionNumber: 5,
+    questionText: "State whether the following statement is True or False. Statement: Matplotlib Python library is used to plot the temperature and humidity data received at the server in the lecture.",
     options: [
-      { key: "a", text: "IaaS" },
-      { key: "b", text: "PaaS" },
-      { key: "c", text: "SaaS" },
-      { key: "d", text: "BaaS" }
+      { key: "a", text: "False" },
+      { key: "b", text: "True" },
+    ],
+    correctKeys: ["b"],
+    type: "boolean",
+    solution: "MATPLOTLIB is a Python library used to create 2D plots; functions such as plot(), xlabel(), ylabel(), and title() are used to plot and label the sensor data. See Lecture 32 (Implementation of IoT with Raspberry Pi \u2013 Part 3) @ 12:15"
+  },
+  {
+    id: "w7-q6",
+    moduleId: "week-7",
+    weekLabel: "Week 7",
+    questionNumber: 6,
+    questionText: "Which matplotlib function turns on interactive mode so that the plot updates in real time as new data arrives?",
+    options: [
+      { key: "a", text: "ion()" },
+      { key: "b", text: "grid()" },
+      { key: "c", text: "subplot()" },
+      { key: "d", text: "figure()" },
+    ],
+    correctKeys: ["a"],
+    type: "mcq",
+    solution: "ion() turns on the interactive mode in matplotlib. Other common plotting functions mentioned include figure(), grid(), subplot(), close(), and scatter(). See Lecture 32 (Implementation of IoT with Raspberry Pi \u2013 Part 3) @ 23:25"
+  },
+  {
+    id: "w7-q7",
+    moduleId: "week-7",
+    weekLabel: "Week 7",
+    questionNumber: 7,
+    questionText: "In a traditional (non-SDN) network, where does the routing protocol logic (e.g., OSPF) mainly execute?",
+    options: [
+      { key: "a", text: "In a centralized controller" },
+      { key: "b", text: "At the individual switches" },
+      { key: "c", text: "On the end-user device" },
+      { key: "d", text: "In the cloud" },
+    ],
+    correctKeys: ["b"],
+    type: "mcq",
+    solution: "In the current network, protocols like OSPF execute at the switches, which forward traffic in a distributed manner with no centralized control. See Lecture 33 (Software-Defined Networking \u2013 Part I) @ 04:10"
+  },
+  {
+    id: "w7-q8",
+    moduleId: "week-7",
+    weekLabel: "Week 7",
+    questionNumber: 8,
+    questionText: "In which year was the OpenFlow project \u2014 from which the idea of software-defined networking originated \u2014 presented at ACM SIGCOMM?",
+    options: [
+      { key: "a", text: "2006" },
+      { key: "b", text: "2008" },
+      { key: "c", text: "2009" },
+      { key: "d", text: "2011" },
+    ],
+    correctKeys: ["b"],
+    type: "mcq",
+    solution: "The idea of software-defined networking originated from the OpenFlow project, presented at ACM SIGCOMM in 2008. Stanford published the OpenFlow V1.0.0 specification the following year. See Lecture 33 (Software-Defined Networking \u2013 Part I) @ 10:50"
+  },
+  {
+    id: "w7-q9",
+    moduleId: "week-7",
+    weekLabel: "Week 7",
+    questionNumber: 9,
+    questionText: "What message does a switch send to the SDN controller when it receives a packet for which no matching flow-rule exists?",
+    options: [
+      { key: "a", text: "PACKET-IN message" },
+      { key: "b", text: "FLOW-REQUEST message" },
+      { key: "c", text: "RULE-MISS alert" },
+      { key: "d", text: "CONTROL-SYNC message" },
+    ],
+    correctKeys: ["a"],
+    type: "mcq",
+    solution: "When no flow-rule is present for an incoming request, the switch sends a PACKET-IN message to the controller, which then decides a suitable flow-rule and inserts it at the switch. See Lecture 33 (Software-Defined Networking \u2013 Part I) @ 22:33"
+  },
+  {
+    id: "w7-q10",
+    moduleId: "week-7",
+    weekLabel: "Week 7",
+    questionNumber: 10,
+    questionText: "Which SDN API is used for communication between the control layer and the infrastructure layer?",
+    options: [
+      { key: "a", text: "Northbound API" },
+      { key: "b", text: "Southbound API" },
+      { key: "c", text: "East-Westbound API" },
+      { key: "d", text: "North-Southbound API" },
+    ],
+    correctKeys: ["b"],
+    type: "mcq",
+    solution: "The Southbound API is used to communicate between the control layer and the infrastructure layer using the OpenFlow protocol. The Northbound API communicates between the control and application layers. See Lecture 34 (Software-Defined Networking \u2013 Part II) @ 02:00"
+  },
+  {
+    id: "w7-q11",
+    moduleId: "week-7",
+    weekLabel: "Week 7",
+    questionNumber: 11,
+    questionText: "According to the lecture, approximately how many requests per second can a typical SDN controller handle through a single thread?",
+    options: [
+      { key: "a", text: "50" },
+      { key: "b", text: "100" },
+      { key: "c", text: "200" },
+      { key: "d", text: "500" },
     ],
     correctKeys: ["c"],
     type: "mcq",
-    solution: "Software-as-a-Service (SaaS) delivers complete consumer-facing applications over the internet without requiring local installation or server maintenance."
+    solution: "The lecture states that a controller can typically handle around 200 requests in a second through a single thread. See Lecture 34 (Software-Defined Networking \u2013 Part II) @ 04:10"
   },
   {
-    id: "w7p1-q8",
-    moduleId: "week-7-1",
-    weekLabel: "Week 7 (Part 1)",
-    questionNumber: 8,
-    questionText: "Which of the following are major challenges when transferring continuous high-volume IoT data streams to centralized cloud platforms?",
-    options: [
-      { key: "a", text: "High bandwidth consumption" },
-      { key: "b", text: "Network latency delays for time-critical actions" },
-      { key: "c", text: "Data privacy and security regulations" },
-      { key: "d", text: "Absence of any cloud storage providers" }
-    ],
-    correctKeys: ["a", "b", "c"],
-    type: "msq",
-    solution: "Bandwidth saturation, round-trip network latency, and data compliance/privacy are primary challenges of centralized cloud-only IoT setups."
-  },
-  {
-    id: "w7p1-q9",
-    moduleId: "week-7-1",
-    weekLabel: "Week 7 (Part 1)",
-    questionNumber: 9,
-    questionText: "State True or False. Bare-metal (Type 1) hypervisors run directly on the host computer's physical hardware without an underlying host operating system.",
-    options: [
-      { key: "a", text: "True" },
-      { key: "b", text: "False" }
-    ],
-    correctKeys: ["a"],
-    type: "boolean",
-    solution: "Type 1 (native/bare-metal) hypervisors like VMware ESXi or Xen run directly on hardware, offering better performance than Type 2 (hosted) hypervisors."
-  },
-  {
-    id: "w7p1-q10",
-    moduleId: "week-7-1",
-    weekLabel: "Week 7 (Part 1)",
-    questionNumber: 10,
-    questionText: "What role does the Gateway node play between local sensor networks and cloud platforms?",
-    options: [
-      { key: "a", text: "Protocol translation and preliminary data aggregation" },
-      { key: "b", text: "Physical mechanical actuation only" },
-      { key: "c", text: "Converting digital signals into analog sound waves" },
-      { key: "d", text: "Formatting print layouts" }
-    ],
-    correctKeys: ["a"],
-    type: "mcq",
-    solution: "IoT Gateways bridge local protocols (Zigbee, BLE, 6LoWPAN) to IP networks (Ethernet, Cellular, Wi-Fi) and perform filtering, compression, and aggregation."
-  },
-  {
-    id: "w7p1-q11",
-    moduleId: "week-7-1",
-    weekLabel: "Week 7 (Part 1)",
-    questionNumber: 11,
-    questionText: "Which mechanism in cloud computing guarantees that consumers pay only for the exact computational resources consumed during runtime?",
-    options: [
-      { key: "a", text: "Measured service / Pay-per-use" },
-      { key: "b", text: "Fixed yearly licensing" },
-      { key: "c", text: "Open-source donation" },
-      { key: "d", text: "Hardware sponsorship" }
-    ],
-    correctKeys: ["a"],
-    type: "mcq",
-    solution: "Measured service enables resource usage to be metered, reported, and billed transparently on a strict pay-as-you-go model."
-  },
-  {
-    id: "w7p1-q12",
-    moduleId: "week-7-1",
-    weekLabel: "Week 7 (Part 1)",
+    id: "w7-q12",
+    moduleId: "week-7",
+    weekLabel: "Week 7",
     questionNumber: 12,
-    questionText: "State True or False. In the Sensor-Cloud model, the end-user needs to own and deploy physical WSN motes in the field.",
+    questionText: "Which control mechanism is described where the entire network's control decisions are taken by a single controller?",
     options: [
-      { key: "a", text: "True" },
-      { key: "b", text: "False" }
+      { key: "a", text: "Distributed control" },
+      { key: "b", text: "Centralized control" },
+      { key: "c", text: "Hierarchical control" },
+      { key: "d", text: "Federated control" },
     ],
     correctKeys: ["b"],
-    type: "boolean",
-    solution: "In Sensor-Cloud, end-users do not deploy hardware. Sensor-owners own the hardware, and the Sensor-Cloud Service Provider (SCSP) rents virtual sensor instances to end-users."
+    type: "mcq",
+    solution: "In centralized control, control decisions are taken in a centralized manner by a single controller, unlike distributed control where each subnetwork is controlled by a different controller. See Lecture 34 (Software-Defined Networking \u2013 Part II) @ 08:15"
   },
   {
-    id: "w7p1-q13",
-    moduleId: "week-7-1",
-    weekLabel: "Week 7 (Part 1)",
+    id: "w7-q13",
+    moduleId: "week-7",
+    weekLabel: "Week 7",
     questionNumber: 13,
-    questionText: "Which IoT data protocol is well-suited for lightweight telemetry ingestion directly into cloud brokers using a publish-subscribe pattern?",
+    questionText: "Which of the following is listed as a benefit of integrating SDN with IoT?",
     options: [
-      { key: "a", text: "MQTT" },
-      { key: "b", text: "BGP" },
-      { key: "c", text: "SNMP" },
-      { key: "d", text: "RIP" }
+      { key: "a", text: "Increased hardware cost" },
+      { key: "b", text: "Visibility of network resources" },
+      { key: "c", text: "Reduced sensor accuracy" },
+      { key: "d", text: "Elimination of all controllers" },
     ],
-    correctKeys: ["a"],
+    correctKeys: ["b"],
     type: "mcq",
-    solution: "MQTT is the industry standard pub/sub protocol for streaming telemetry from edge devices to cloud message brokers like AWS IoT Core and Azure IoT Hub."
+    solution: "Benefits of integrating SDN in IoT include intelligent routing decisions, simplified information collection/analysis/decision-making, visibility of network resources, and intelligent traffic pattern analysis. See Lecture 35 (Software-Defined IoT Networking \u2013 Part I) @ 02:50"
   },
   {
-    id: "w7p1-q14",
-    moduleId: "week-7-1",
-    weekLabel: "Week 7 (Part 1)",
+    id: "w7-q14",
+    moduleId: "week-7",
+    weekLabel: "Week 7",
     questionNumber: 14,
-    questionText: "Which of the following are examples of Platform-as-a-Service (PaaS) offerings?",
+    questionText: "According to the lecture, what is a key resource-constraint challenge in wireless sensor networks that motivates software-defined WSN?",
     options: [
-      { key: "a", text: "Google App Engine" },
-      { key: "b", text: "AWS Elastic Beanstalk" },
-      { key: "c", text: "Heroku" },
-      { key: "d", text: "Bare hard-drive barebone enclosure" }
+      { key: "a", text: "Excess bandwidth" },
+      { key: "b", text: "Limited memory for control programs" },
+      { key: "c", text: "Too many controllers" },
+      { key: "d", text: "Unlimited computation power" },
     ],
-    correctKeys: ["a", "b", "c"],
-    type: "msq",
-    solution: "Google App Engine, AWS Elastic Beanstalk, and Heroku provide managed application platforms without the user managing low-level OS/VM maintenance."
+    correctKeys: ["b"],
+    type: "mcq",
+    solution: "Wireless sensor network challenges include real-time programming of sensor nodes, vendor-specific architecture, resource-constrained (heavy computation cannot be performed) devices, and limited memory, meaning too many control programs cannot be inserted. See Lecture 35 (Software-Defined IoT Networking \u2013 Part I) @ 08:10"
   },
   {
-    id: "w7p1-q15",
-    moduleId: "week-7-1",
-    weekLabel: "Week 7 (Part 1)",
+    id: "w7-q15",
+    moduleId: "week-7",
+    weekLabel: "Week 7",
     questionNumber: 15,
-    questionText: "State True or False. Data serialization formats like JSON and Protocol Buffers are commonly used for formatting IoT sensor telemetry payload before transmission to cloud endpoints.",
+    questionText: "In the SDN-WISE protocol stack for sensor nodes, what does \"INPP\" stand for?",
     options: [
-      { key: "a", text: "True" },
-      { key: "b", text: "False" }
+      { key: "a", text: "Integrated Node Path Protocol" },
+      { key: "b", text: "Internal Node Power Processing" },
+      { key: "c", text: "In Network Packet Processing" },
+      { key: "d", text: "IoT Network Priority Protocol" },
     ],
-    correctKeys: ["a"],
-    type: "boolean",
-    solution: "JSON and Protobuf are ubiquitous data serialization formats for transmitting structured sensor payloads over HTTP and MQTT."
-  },
-
-  // ==========================================
-  // WEEK 7 PART 2: MODULE 08 (Edge & Fog Computing)
-  // ==========================================
-  {
-    id: "w7p2-q1",
-    moduleId: "week-7-2",
-    weekLabel: "Week 7 (Part 2)",
-    questionNumber: 1,
-    questionText: "What is the primary motivation for adopting Edge and Fog Computing alongside centralized cloud?",
-    options: [
-      { key: "a", text: "Decreasing physical sensor size" },
-      { key: "b", text: "Reducing network latency and conserving uplink bandwidth" },
-      { key: "c", text: "Increasing cloud subscription fees" },
-      { key: "d", text: "Eliminating the need for microprocessors" }
-    ],
-    correctKeys: ["b"],
+    correctKeys: ["c"],
     type: "mcq",
-    solution: "Edge/Fog computing shifts data processing closer to the data sources, minimizing transmission latency and preventing cloud bandwidth bottlenecks."
-  },
-  {
-    id: "w7p2-q2",
-    moduleId: "week-7-2",
-    weekLabel: "Week 7 (Part 2)",
-    questionNumber: 2,
-    questionText: "State True or False. Edge computing processes data right on or in immediate proximity to the data-generating device, whereas Fog computing sits between the edge devices and the core cloud.",
-    options: [
-      { key: "a", text: "True" },
-      { key: "b", text: "False" }
-    ],
-    correctKeys: ["a"],
-    type: "boolean",
-    solution: "Edge computing resides directly on or adjacent to sensor devices; Fog computing acts as an intermediary decentralised layer between edge devices and the remote cloud."
-  },
-  {
-    id: "w7p2-q3",
-    moduleId: "week-7-2",
-    weekLabel: "Week 7 (Part 2)",
-    questionNumber: 3,
-    questionText: "Which of the following IoT applications strictly require Fog/Edge computing due to sub-millisecond latency constraints?",
-    options: [
-      { key: "a", text: "Autonomous vehicle collision avoidance" },
-      { key: "b", text: "Industrial robotics emergency shutdown" },
-      { key: "c", text: "Monthly billing summary generation" },
-      { key: "d", text: "Archived historical weather report indexing" }
-    ],
-    correctKeys: ["a", "b"],
-    type: "msq",
-    solution: "Safety-critical tasks like autonomous collision avoidance and emergency machinery shutdowns demand deterministic, real-time edge processing."
-  },
-  {
-    id: "w7p2-q4",
-    moduleId: "week-7-2",
-    weekLabel: "Week 7 (Part 2)",
-    questionNumber: 4,
-    questionText: "Which node can serve as a Fog node in an industrial smart factory?",
-    options: [
-      { key: "a", text: "Industrial gateway / Edge router" },
-      { key: "b", text: "Programmable Logic Controller (PLC)" },
-      { key: "c", text: "Local micro-server" },
-      { key: "d", text: "Passive RFID sticker without power" }
-    ],
-    correctKeys: ["a", "b", "c"],
-    type: "msq",
-    solution: "Gateways, smart PLCs, and local micro-servers possess compute and storage to act as fog nodes. Unpowered passive RFID tags cannot execute compute workloads."
-  },
-  {
-    id: "w7p2-q5",
-    moduleId: "week-7-2",
-    weekLabel: "Week 7 (Part 2)",
-    questionNumber: 5,
-    questionText: "State True or False. A fog computing layer can continue operating and making local decisions even during an unexpected WAN disconnection from the central cloud.",
-    options: [
-      { key: "a", text: "True" },
-      { key: "b", text: "False" }
-    ],
-    correctKeys: ["a"],
-    type: "boolean",
-    solution: "High availability and offline autonomy are key advantages of Fog computing: local systems remain operational without wide-area internet connectivity."
-  },
-  {
-    id: "w7p2-q6",
-    moduleId: "week-7-2",
-    weekLabel: "Week 7 (Part 2)",
-    questionNumber: 6,
-    questionText: "In distributed IoT analytics, data reduction at the edge is performed through:",
-    options: [
-      { key: "a", text: "Filtering out redundant consecutive readings" },
-      { key: "b", text: "Local aggregation (averages, min/max calculations)" },
-      { key: "c", text: "Transmitting every raw analog waveform indefinitely" },
-      { key: "d", text: "Edge-based anomaly detection" }
-    ],
-    correctKeys: ["a", "b", "d"],
-    type: "msq",
-    solution: "Filtering unchanged data, computing rolling statistics, and flagging anomalies reduce the data volume that must be uploaded upstream."
-  },
-  {
-    id: "w7p2-q7",
-    moduleId: "week-7-2",
-    weekLabel: "Week 7 (Part 2)",
-    questionNumber: 7,
-    questionText: "What is an important trade-off when implementing complex deep learning models directly on edge devices?",
-    options: [
-      { key: "a", text: "Resource constraints in memory, battery, and computing power" },
-      { key: "b", text: "Excessive physical fiber cable length" },
-      { key: "c", text: "Automatic replacement of the sensor" },
-      { key: "d", text: "Inability to read binary numbers" }
-    ],
-    correctKeys: ["a"],
-    type: "mcq",
-    solution: "Edge devices feature tight power budgets and limited RAM/compute, necessitating model quantization and lightweight frameworks like TensorFlow Lite."
-  },
-  {
-    id: "w7p2-q8",
-    moduleId: "week-7-2",
-    weekLabel: "Week 7 (Part 2)",
-    questionNumber: 8,
-    questionText: "State True or False. Fog computing replaces Cloud computing entirely, making central data centers obsolete.",
-    options: [
-      { key: "a", text: "True" },
-      { key: "b", text: "False" }
-    ],
-    correctKeys: ["b"],
-    type: "boolean",
-    solution: "Fog computing complements the cloud. Fog handles time-sensitive local operations, while the cloud handles global coordination, archival, and heavy model training."
-  },
-  {
-    id: "w7p2-q9",
-    moduleId: "week-7-2",
-    weekLabel: "Week 7 (Part 2)",
-    questionNumber: 9,
-    questionText: "Which architecture distributes computation seamlessly across the continuum from device to cloud?",
-    options: [
-      { key: "a", text: "Cloud-to-Thing continuum" },
-      { key: "b", text: "Static dial-up network" },
-      { key: "c", text: "Monolithic mainframe only" },
-      { key: "d", text: "Pure peer-to-peer without hierarchy" }
-    ],
-    correctKeys: ["a"],
-    type: "mcq",
-    solution: "The Cloud-to-Thing (or Edge-to-Cloud) continuum represents an integrated multi-tier hierarchy spanning sensors, edge, fog, and cloud layers."
-  },
-  {
-    id: "w7p2-q10",
-    moduleId: "week-7-2",
-    weekLabel: "Week 7 (Part 2)",
-    questionNumber: 10,
-    questionText: "Which of the following is an example of an open edge computing runtime for deploying containerized microservices on IoT gateways?",
-    options: [
-      { key: "a", text: "EdgeX Foundry" },
-      { key: "b", text: "KubeEdge" },
-      { key: "c", text: "Azure IoT Edge" },
-      { key: "d", text: "MS Paint" }
-    ],
-    correctKeys: ["a", "b", "c"],
-    type: "msq",
-    solution: "EdgeX Foundry, KubeEdge, and Azure IoT Edge are established frameworks for deploying and orchestrating containerized microservices at the network edge."
-  },
-  {
-    id: "w7p2-q11",
-    moduleId: "week-7-2",
-    weekLabel: "Week 7 (Part 2)",
-    questionNumber: 11,
-    questionText: "State True or False. Privacy is enhanced with edge computing because sensitive raw data (like video feeds or medical vitals) can be analyzed locally without transmitting raw streams to external third-party servers.",
-    options: [
-      { key: "a", text: "True" },
-      { key: "b", text: "False" }
-    ],
-    correctKeys: ["a"],
-    type: "boolean",
-    solution: "Edge processing allows personally identifiable information (PII) and raw biometric telemetry to be kept on-premise, transmitting only anonymized summaries."
-  },
-  {
-    id: "w7p2-q12",
-    moduleId: "week-7-2",
-    weekLabel: "Week 7 (Part 2)",
-    questionNumber: 12,
-    questionText: "In smart agriculture, what is a key task delegated to an edge node placed directly in the field?",
-    options: [
-      { key: "a", text: "Automating irrigation valves based on real-time soil moisture thresholds" },
-      { key: "b", text: "Re-installing cellular towers manually" },
-      { key: "c", text: "Running enterprise tax audits" },
-      { key: "d", text: "Producing fertilizer chemically" }
-    ],
-    correctKeys: ["a"],
-    type: "mcq",
-    solution: "An agricultural edge controller reads local moisture sensors and immediately controls actuator valves for water management without cloud round-trip delay."
-  },
-  {
-    id: "w7p2-q13",
-    moduleId: "week-7-2",
-    weekLabel: "Week 7 (Part 2)",
-    questionNumber: 13,
-    questionText: "Which communication protocols are commonly used between IoT sensors and edge gateways?",
-    options: [
-      { key: "a", text: "Bluetooth Low Energy (BLE)" },
-      { key: "b", text: "ZigBee" },
-      { key: "c", text: "LoRaWAN" },
-      { key: "d", text: "Optical carrier OC-768 exclusively" }
-    ],
-    correctKeys: ["a", "b", "c"],
-    type: "msq",
-    solution: "Low-power short/long range wireless protocols like BLE, ZigBee, and LoRaWAN connect physical end-devices to edge aggregators."
-  },
-  {
-    id: "w7p2-q14",
-    moduleId: "week-7-2",
-    weekLabel: "Week 7 (Part 2)",
-    questionNumber: 14,
-    questionText: "State True or False. Federated Learning allows IoT edge devices to collaboratively train a shared machine learning model without transmitting their raw training data to a central cloud server.",
-    options: [
-      { key: "a", text: "True" },
-      { key: "b", text: "False" }
-    ],
-    correctKeys: ["a"],
-    type: "boolean",
-    solution: "Federated learning sends model weight parameter updates to an aggregator rather than raw dataset samples, preserving device data privacy."
-  },
-  {
-    id: "w7p2-q15",
-    moduleId: "week-7-2",
-    weekLabel: "Week 7 (Part 2)",
-    questionNumber: 15,
-    questionText: "What happens when an edge node experiences a power failure?",
-    options: [
-      { key: "a", text: "The entire internet stops functioning" },
-      { key: "b", text: "Only the local sensors connected to that specific edge gateway are temporarily disconnected or routed to backup nodes" },
-      { key: "c", text: "All data across all continents is wiped" },
-      { key: "d", text: "The cloud server is physically destroyed" }
-    ],
-    correctKeys: ["b"],
-    type: "mcq",
-    solution: "Decentralized architectures localize hardware faults: if an edge node fails, only its local sub-network is affected while other nodes and cloud continue running."
+    solution: "In the SDN-WISE protocol stack, the forwarding layer above IEEE 802.15.4 consists of flow-rules, and INPP stands for In Network Packet Processing. See Lecture 35 (Software-Defined IoT Networking \u2013 Part I) @ 15:35"
   },
 
   // ==========================================

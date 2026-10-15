@@ -380,7 +380,7 @@ function home() {
           <div class="practice-card-content">
             <div class="practice-card-header">
               <h3>Full test</h3>
-              <span class="practice-badge">210 Qs</span>
+              <span class="practice-badge">${QUIZ_QUESTIONS.length} Qs</span>
             </div>
             <p>Comprehensive exam containing all ${QUIZ_QUESTIONS.length} questions across every module.</p>
             <button class="text-btn" type="button" id="startFullTestCard">Take full test →</button>
@@ -425,7 +425,7 @@ function home() {
               <h3>Flashcard review</h3>
               <span class="practice-badge">Space to flip</span>
             </div>
-            <p>Rapid mental repetition. Think of the answer, hit Space to reveal, and power through 210 questions fast.</p>
+            <p>Rapid mental repetition. Think of the answer, hit Space to reveal, and power through all ${QUIZ_QUESTIONS.length} questions fast.</p>
             <button class="text-btn" type="button" id="startFlashcardsCard" style="color: #6366f1;">
               Open flashcards →
             </button>
