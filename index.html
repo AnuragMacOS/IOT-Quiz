@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f3ee">
+  <meta name="description" content="Practise Internet of Things (IoT) with week-wise quizzes, a full test, instant feedback and progress tracking.">
+  <title>Internet of Things (IoT) — Study Studio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    
+    <!-- Header Topbar -->
+    <header class="topbar">
+      <div class="brand" id="homeBrandBtn" role="button" tabindex="0" aria-label="Internet of Things (IoT) home">
+        <div class="brand-mark" aria-hidden="true">IoT</div>
+        <div class="brand-text">
+          <span class="brand-name">Internet of Things (IoT)</span>
+          <span class="brand-sub">MOOC Quiz & Practice Studio</span>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="quiet-btn" id="homeBtn" type="button" aria-label="Return to Dashboard">⌂ Home</button>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch to dark theme" title="Toggle theme">☾</button>
+      </div>
+    </header>
+
+    <!-- Main Dynamic Application Container -->
+    <main id="app" tabindex="-1"></main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>Internet of Things (IoT) · Practice at your own pace</span>
+      <span>Your answers stay in this browser session.</span>
+    </footer>
+
+  </div>
+
+  <!-- Sleek Custom In-App Confirmation Modal -->
+  <div class="modal-backdrop" id="customModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalBody">
+    <div class="modal-card">
+      <div class="modal-header-row">
+        <div class="modal-icon-wrap danger" id="modalIconWrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <button type="button" class="modal-close-x" id="modalCloseXBtn" aria-label="Close dialog">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-content">
+        <div class="modal-context-chip" id="modalContextChip" style="display: none;">
+          <span class="pulsing-dot" aria-hidden="true"></span>
+          <span id="modalContextText"></span>
+        </div>
+        <h3 class="modal-title" id="modalTitle">Exit this test?</h3>
+        <p class="modal-body" id="modalBody">Your answers for this test attempt will be cleared and you will return to the dashboard.</p>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-modal-cancel" id="modalCancelBtn">
+          <span id="modalCancelBtnText">Keep Practicing</span>
+          <kbd class="kbd-hint">Esc</kbd>
+        </button>
+        <button type="button" class="btn-modal-confirm danger" id="modalConfirmBtn">
+          <span id="modalConfirmIcon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16 17 21 12 16 7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          <span id="modalConfirmBtnText">Exit test</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

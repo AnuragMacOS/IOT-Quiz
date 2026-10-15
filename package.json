@@ -1,0 +1,11 @@
+{
+  "name": "iot-quiz-platform",
+  "version": "1.0.0",
+  "description": "Internet of Things (IoT) Quiz & Study Platform - Self-Contained SPA with LocalStorage Persistence",
+  "scripts": {
+    "dev": "npx -y serve -p 3001 .",
+    "start": "npx -y serve -p 3001 ."
+  },
+  "keywords": ["iot", "quiz", "spa", "study", "nptel"],
+  "license": "MIT"
+}
