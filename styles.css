@@ -1228,17 +1228,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   margin-bottom: 8px;
 }
 
-/* Footer */
-.footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
-  margin-top: 38px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.8rem;
-}
+
 
 /* ==========================================================================
    Screen 2: Active Quiz Interface
@@ -1387,14 +1377,30 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   flex: none;
   width: 28px;
   height: 28px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  border: 1.5px solid var(--line);
+  border-radius: 50%;
   color: var(--muted);
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.82rem;
   font-weight: 800;
   background: var(--surface-2);
-  transition: all 0.16s;
+  transition: all 0.16s ease;
+}
+
+/* MCQ / Single Choice: Circle (Radio) */
+.choice:has(input[type="radio"]) .choice-letter,
+.choice.choice-mcq .choice-letter,
+.choice-letter.shape-circle,
+.choice-letter.is-mcq {
+  border-radius: 50% !important;
+}
+
+/* MSQ / Multiple Select: Square (Checkbox) */
+.choice:has(input[type="checkbox"]) .choice-letter,
+.choice.choice-msq .choice-letter,
+.choice-letter.shape-square,
+.choice-letter.is-msq {
+  border-radius: 6px !important;
 }
 
 .choice-copy {
@@ -2078,9 +2084,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   .result-stat strong {
     font-size: 1.4rem;
   }
-  .footer {
-    flex-direction: column;
-  }
+
 }
 
 @media (max-width: 400px) {

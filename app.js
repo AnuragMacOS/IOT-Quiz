@@ -803,9 +803,9 @@ function renderQuiz() {
       }
 
       return `
-        <label class="choice ${feedbackClass}" for="opt_${option.key}">
+        <label class="choice ${feedbackClass} ${isMsq ? 'choice-msq' : 'choice-mcq'}" for="opt_${option.key}">
           <input type="${inputType}" id="opt_${option.key}" name="quiz_opt" value="${option.key}" ${isChecked ? 'checked' : ''} ${isEvaluated && !isMsq ? 'disabled' : ''}>
-          <span class="choice-letter">${option.key.toUpperCase()}</span>
+          <span class="choice-letter ${isMsq ? 'shape-square' : 'shape-circle'}">${option.key.toUpperCase()}</span>
           <span class="choice-copy">${esc(option.text)}</span>
         </label>
       `;
@@ -1466,9 +1466,9 @@ function renderSurvival() {
     }
 
     return `
-      <label class="choice ${extraClass}" for="surv_opt_${opt.key}">
+      <label class="choice ${extraClass} ${isMsq ? 'choice-msq' : 'choice-mcq'}" for="surv_opt_${opt.key}">
         <input type="${isMsq ? 'checkbox' : 'radio'}" id="surv_opt_${opt.key}" name="surv_opt" value="${opt.key}" ${isChecked ? 'checked' : ''} ${survivalAnswered ? 'disabled' : ''}>
-        <span class="choice-letter">${opt.key.toUpperCase()}</span>
+        <span class="choice-letter ${isMsq ? 'shape-square' : 'shape-circle'}">${opt.key.toUpperCase()}</span>
         <span class="choice-copy">${esc(opt.text)}</span>
       </label>
     `;
