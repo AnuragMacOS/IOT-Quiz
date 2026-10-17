@@ -6,8 +6,8 @@ No build step, framework, or database needed. Everything runs in the browser and
 
 ## Practice modes
 
-- Full test: all 195 questions across every module.
-- Random sprint: 20 random questions pulled from across the course.
+- Full test: all 195 questions across every module in sequential order.
+- Random shuffle: all 195 questions shuffled across the course for an unpredictable drill.
 - Mistake Vault: automatically collects questions you miss or skip. A question stays in the vault until you answer it correctly twice in a row.
 - Flashcard review: shows the question, press Space to reveal the verified answer and explanation, use arrow keys to navigate.
 - Survival mode: answer random questions with 3 lives. One mistake loses a life; tracks your highest unbroken streak.

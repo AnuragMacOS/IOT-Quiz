@@ -113,6 +113,16 @@ function arraysEqual(a = [], b = []) {
   return sortedA.every((val, index) => val === sortedB[index]);
 }
 
+// Utility: Fisher-Yates Array Shuffle
+function shuffleArray(arr = []) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 // ============================================================================
 // Sleek In-App Custom Modal Controller (No ugly browser alert!)
 // ============================================================================
@@ -387,16 +397,16 @@ function home() {
           </div>
         </article>
 
-        <!-- Card 2: Random Sprint -->
+        <!-- Card 2: Random Shuffle -->
         <article class="practice-card">
           <div class="practice-icon" aria-hidden="true">⚄</div>
           <div class="practice-card-content">
             <div class="practice-card-header">
-              <h3>Random sprint</h3>
-              <span class="practice-badge">20 Qs</span>
+              <h3>Random shuffle</h3>
+              <span class="practice-badge">${QUIZ_QUESTIONS.length} Qs</span>
             </div>
-            <p>Fast practice session with 20 randomized questions drawn across all weeks.</p>
-            <button class="text-btn" type="button" id="startRandomCard">Start random sprint →</button>
+            <p>All ${QUIZ_QUESTIONS.length} questions shuffled across all weeks for an unpredictable full-course drill.</p>
+            <button class="text-btn" type="button" id="startRandomCard">Start random shuffle →</button>
           </div>
         </article>
 
@@ -709,11 +719,11 @@ function prepareQuestions(weekIdx) {
   let list = [];
 
   if (weekIdx === -1) {
-    // Full Test (All 210 questions)
+    // Full Test (Sequential order)
     list = [...QUIZ_QUESTIONS];
   } else if (weekIdx === -2) {
-    // Random Test (20 questions)
-    list = [...QUIZ_QUESTIONS].sort(() => Math.random() - 0.5).slice(0, 20);
+    // Random Shuffle (All questions in randomized order)
+    list = shuffleArray(QUIZ_QUESTIONS);
   } else if (weekIdx === -3) {
     // Mistake Vault (Only questions you got wrong)
     const vaultIds = Object.keys(history.mistakeVault || {});
@@ -743,7 +753,7 @@ function start(weekIdx) {
   if (weekIdx === -1) {
     title = `Full Test (All ${cur.length} Questions)`;
   } else if (weekIdx === -2) {
-    title = `Random Sprint (${cur.length} Questions)`;
+    title = `Random Shuffle (All ${cur.length} Questions)`;
   } else if (weekIdx === -3) {
     title = `Mistake Vault (${cur.length} Questions to Fix)`;
   } else if (weekIdx === -4) {
@@ -1413,7 +1423,7 @@ function openSurvival() {
 
 function renderSurvival() {
   if (survivalIdx >= survivalPool.length) {
-    survivalPool = [...QUIZ_QUESTIONS].sort(() => Math.random() - 0.5);
+    survivalPool = shuffleArray(QUIZ_QUESTIONS);
     survivalIdx = 0;
   }
   const q = survivalPool[survivalIdx];
