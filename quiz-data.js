@@ -1,9 +1,3 @@
-/**
- * Internet of Things (IoT) Quiz & Question Bank
- * Comprehensive dataset covering Weeks 0 through 12 (13 Modules, 195 Questions)
- * Authentic NPTEL Introduction to IoT assignments with verified solutions.
- */
-
 export const QUIZ_MODULES = [
   {
     id: "week-0",
